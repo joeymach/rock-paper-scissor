@@ -1,0 +1,71 @@
+/* FOR WEATHER WIDGET */
+
+div.widget {
+	position: relative;
+	width: 355px;
+	height: 200px;
+	margin: 100px;
+	border-radius: 9px;
+	padding: 25px;
+	padding-right: 30px;
+	box-shadow: 0px 31px 35px -26px #080c21;
+	font-family: 'Roboto', sans-serif;
+	overflow: hidden;
+	background: rgb(255, 255, 255);
+	outline: none;
+}
+
+div.city {
+	font-size: 21px;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding-top: 3px;
+	color: rgba(0, 0, 0, 0.7);
+}
+
+div.temp {
+	font-size: 40px;
+	color: rgba(0, 0, 0, 0.9);
+	font-weight: 100;
+	margin: 15px;
+}
+
+div.feels {
+	font-size: 20px;
+	color: #686868;
+	margin: 5px;
+}
+
+div.panel {
+	display: inline-block;
+}
+
+div.right-panel {
+	float: right;
+}
+
+.widget-img {
+	width: 100px;
+	height: 100px;
+	margin-top: 30px;
+}
+
+.widget-img2 {
+	width: 100px;
+	height: 70px;
+  margin-top: 50px;
+}
+
+
+div.cases {
+	font-size: 25px;
+	color: rgba(0, 0, 0, 0.9);
+	font-weight: 100;
+  line-height: 135%;
+
+}
+
+.span-cases {
+  font-size: 15px;
+  line-height: 120%;
+}

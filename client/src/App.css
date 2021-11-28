@@ -1,0 +1,614 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Rancho&display=swap");
+@import url('http://fonts.cdnfonts.com/css/minecraft-4');
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+}
+
+:root {
+  --primary: #8a57e9;
+  --secondary: lightblue;
+}
+
+body {
+
+  width: 100%;
+  height: 100vh;
+  background-image: linear-gradient(to right bottom,
+      var(--primary),
+      var(--secondary));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5rem;
+}
+
+.dropdown {
+  width: 5rem;
+
+}
+
+.dropdown-select {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: white;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+
+
+
+
+}
+
+#link {
+  padding: 1rem;
+  border-radius: 8px;
+  background-color: white;
+  width: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+  top: 11px;
+  left: 180px;
+
+
+}
+
+#playnow {
+  padding: 2rem;
+  border-radius: 16px;
+  background-color: white;
+  width: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  cursor: pointer;
+  text-align: center;
+  font-family: 'Bungee', cursive;
+  position: relative;
+  top: 40px;
+  left: 460px;
+}
+
+#welcome {
+  position: relative;
+  top: 40px;
+  left: 58px;
+  color: black;
+  font-size: 6vh;
+  text-align: center;
+  line-height: 70%;
+  font-family: "Rancho", cursive;
+}
+
+
+.select:hover {
+  opacity: 1;
+  visibility: visible;
+
+}
+
+#rounds {
+  position: relative;
+  top: 80px;
+  left: 620px;
+
+
+}
+
+
+
+.val {
+  border-radius: 4px;
+  background-color: white;
+  padding: 1rem;
+  font-size: 1.4rem;
+  top: 110%;
+  left: 0%;
+  right: 0%;
+  visibility: hidden;
+  transition: opacity 0.2s linear, visibility 0.2s linear;
+  font-family: 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: ariel, sans-serif;
+  font-size: medium;
+  box-sizing: border-box;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+}
+
+.select {
+  position: absolute;
+  top: 40px;
+  left: 900px;
+}
+
+#title {
+  text-align: center;
+  margin: 10px;
+  position: relative;
+  top: 50px;
+  left: 60px;
+  font-family: 'Bungee', cursive;
+  font-size: 70px;
+
+}
+
+#r {
+  position: relative;
+  top: 50px;
+  left: 120px;
+  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  display: inline-block;
+  animation: fadeIn linear 2.5s;
+  -webkit-animation: fadeIn linear 2.5s;
+  -moz-animation: fadeIn linear 2.5s;
+  -o-animation: fadeIn linear 2.5s;
+  -ms-animation: fadeIn linear 2.5s;
+
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-o-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-ms-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+p {
+  margin: 0.5rem;
+}
+
+input {
+  margin-top: 1rem;
+  padding: 5px;
+}
+
+h1 {
+  font-size: 50px;
+  padding: 10px;
+}
+
+button {
+  margin: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  position: fixed;
+  left: 1300px;
+  top: 112px;
+  width: 200px;
+  font-size: 20px;
+  font-family: "Bungee", cursive;
+}
+
+#circle2 {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  left: 1050px;
+  top: 450px
+}
+
+#circle1 {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  left: 550px;
+  top: 450px;
+
+}
+
+.whatyou {
+  position: relative;
+  left: 120px;
+  top: -40px;
+  font-family: "Poppins", cursive;
+
+}
+
+.resultsentence {
+  font-size: 40px;
+  position: fixed;
+  top: 40px;
+  left: 750px;
+  font-family: "Rancho", cursive;
+  border-radius: 6px;
+
+
+
+
+}
+
+#rounds-remaining {
+  font-size: 50px;
+  font-family: 'Bungee', cursive;
+  position: relative;
+  top: -40px;
+  text-align: center;
+}
+
+hr {
+  position: relative;
+  top: -20px;
+  left: 12px;
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 100vh;
+}
+
+#winner-display {
+  text-align: center;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  font-size: 45px;
+  font-family: "Rancho", cursive;
+}
+
+#winner-display span {
+  font-family: 'Poppins', cursive;
+  font-size: 30px;
+  ;
+}
+
+.vl {
+  border-left: 10px solid black;
+  height: 500px;
+  position: relative;
+  top: 45px;
+
+}
+
+#playerr {
+  position: relative;
+  top: 40px;
+  left: 105px;
+  font-family: "Bungee", cursive;
+}
+
+.together {
+  position: relative;
+  top: 530px;
+  left: 50px;
+  font-size: 20px;
+  font-family: "Poppins", cursive;
+  letter-spacing: 1px;
+
+
+
+
+}
+
+#your {
+  position: relative;
+  left: 80px;
+  top: 25px;
+  letter-spacing: 3px;
+  font-family: "Poppins", cursive;
+}
+
+
+
+.item1 {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  top: 180px;
+}
+
+#player-form {
+  width: 50px;
+  position: fixed;
+  left: 350px;
+  top: 350px;
+
+
+}
+
+#optionsubmit {
+  margin: 5px;
+  padding: 15px;
+  border-radius: 15px;
+  position: relative;
+  top: 15px;
+  left: -5px;
+  width: 80px;
+}
+
+
+#computerr {
+  position: relative;
+  top: 40px;
+  left: 85px;
+  font-family: "Bungee", cursive;
+
+
+}
+
+#computer-screen {
+  position: relative;
+  left: 130px;
+  top: 25px;
+  letter-spacing: 3px;
+  font-family: "Poppins", cursive;
+
+
+}
+
+#computerwins {
+  position: relative;
+  top: 525px;
+  left: 80px;
+  font-size: 20px;
+  font-family: "Poppins", cursive;
+  letter-spacing: 1px;
+
+}
+
+.item {
+  width: 80px;
+  height: 80px;
+}
+
+
+
+#hr2 {
+  position: absolute;
+  top: 120px;
+  left: 585px;
+  border: 5px solid black;
+  border-radius: 10px;
+  width: 70vh;
+
+}
+
+
+#rounds-left {
+  position: fixed;
+  left: 620px;
+  top: 30px;
+  font-family: "Bungee", cursive;
+
+}
+
+#winner-display2 {
+
+  position: fixed;
+  top: 150px;
+  left: 580px;
+  font-size: 45px;
+  font-family: "Rancho", cursive;
+  text-align: center;
+
+}
+
+.vl2 {
+  border-left: 10px solid black;
+  height: 500px;
+  position: fixed;
+  top: 250px;
+  left: 910px;
+
+}
+
+#player11 {
+  position: absolute;
+  top: 230px;
+  left: 550px;
+  font-family: "Bungee", cursive;
+
+}
+
+#player23 {
+  position: absolute;
+  top: 230px;
+  left: 985px;
+  font-family: "Bungee", cursive;
+
+}
+
+#winoutof1 {
+  position: absolute;
+  left: 520px;
+  top: 700px;
+  font-size: 20px;
+  font-family: "Poppins", cursive;
+  letter-spacing: 1px;
+
+
+}
+
+#winoutof {
+  position: absolute;
+  left: 1000px;
+  top: 700px;
+  font-size: 20px;
+  font-family: "Poppins", cursive;
+  letter-spacing: 1px;
+
+}
+
+#circle11 {
+
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  left: 560px;
+  top: 450px;
+
+
+}
+
+#circle21 {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  left: 550px;
+  top: 450px;
+
+}
+
+#await-msg1 {
+  position: fixed;
+  left: 620px;
+  top: 300px;
+  letter-spacing: 3px;
+  font-family: "Poppins", cursive;
+
+}
+
+#await-msg2 {
+  position: fixed;
+  left: 1050px;
+  top: 300px;
+  letter-spacing: 3px;
+  font-family: "Poppins", cursive;
+
+}
+
+#player-forms {
+  width: 50px;
+  position: fixed;
+  left: 450px;
+  top: 300px;
+
+}
+
+#ghy {
+  margin: 5px;
+  padding: 15px;
+  border-radius: 15px;
+  position: relative;
+  top: 15px;
+  left: -20px;
+  width: 60px;
+}
+
+#player-output11 {
+  position: fixed;
+  top: 330px;
+  left: 580px;
+  font-family: "Poppins", cursive;
+}
+
+#player-form2 {
+  width: 50px;
+  position: fixed;
+  left: 950px;
+  top: 350px;
+
+}
+
+#blah {
+  margin: 5px;
+  padding: 15px;
+  border-radius: 15px;
+  position: relative;
+  top: 15px;
+  left: -15px;
+  width: 60px;
+
+}
+
+#circle21 {
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  left: 1050px;
+  top: 350px;
+
+}
+
+#player-output2 {
+  position: fixed;
+  top: 330px;
+  left: 1010px;
+  font-family: "Poppins", cursive;
+}
+
+
+.resultstatement {
+  font-size: 40px;
+  position: fixed;
+  top: 150px;
+  left: 705px;
+  font-family: "Rancho", cursive;
+  border-radius: 6px;
+
+}
