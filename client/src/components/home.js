@@ -81,9 +81,15 @@ const Home = () => {
 		setPlayLink(redirectLink);
 	};
 
+
+
 	return (
 		<>
-			<div className="widget">
+		<audio autoplay>
+				<source src='./icons/music1.mp3' type='audio/mpeg' />
+				
+			</audio>
+			<div className="widget widget-right">
 				<div className="left-panel panel">
 					<div className="city">TORONTO, CA</div>
 					<div className="temp">{apiWeather.temp}&deg;</div>
@@ -94,7 +100,7 @@ const Home = () => {
 					<img className="widget-img" src={temp} alt="temp" />
 				</div>
 			</div>
-			<div className="widget">
+			<div className="widget widget-left">
 				<div className="left-panel panel">
 					<div className="city">ONTARIO</div>
 					<div className="cases">
@@ -111,37 +117,42 @@ const Home = () => {
 				</div>
 			</div>
 
-			<h2 id="welcome">Welcome. Let's play...</h2>
-			<h1 id="title">{apiTitle}</h1>
-			<form id="play-options" onSubmit={onSubmit}>
-				<p id="r">
-					Let's start by choosing the number of rounds you'd like to play today,
-					and the mode you'd like to play.
-				</p>
-				<div class="dropdown">
-					<select class="dropdown-select" id="rounds" name="rounds">
-						<option class="val">Choose Your Rounds</option>
-						<option class="val" value="1">
-							1
-						</option>
-						<option class="val" value="3">
-							3
-						</option>
-						<option class="val" value="5">
-							5
-						</option>
+			
+
+			<div className="div-homepage-entire">
+				<h2 id="welcome">Welcome. Let's play...</h2>
+				<h1 id="title">{apiTitle}</h1>
+				<form id="play-options" onSubmit={onSubmit}>
+					<p id="r">
+						Let's start by choosing the number of rounds you'd like to play today,
+						and the mode you'd like to play.
+					</p>
+					<div class="dropdown">
+						<select class="dropdown-select" id="rounds" name="rounds">
+							<option class="val">Choose Your Rounds</option>
+							<option class="val" value="1">
+								1
+							</option>
+							<option class="val" value="3">
+								3
+							</option>
+							<option class="val" value="5">
+								5
+							</option>
+						</select>
+					</div>
+
+					<select id="link" name="link">
+						<option class="mode">Choose Your Game Mode</option>
+						<option value="playComputer">Player vs. Computer</option>
+						<option value="playerVsPlayer">Player vs. Opponent</option>
 					</select>
-				</div>
+					<input id="playnow" type="submit" value="Bring It On! 😈" />
+				</form>
 
-				<select id="link" name="link">
-					<option class="mode">Choose Your Game Mode</option>
-					<option value="playComputer">Player vs. Computer</option>
-					<option value="playerVsPlayer">Player vs. Opponent</option>
-				</select>
-				<input id="playnow" type="submit" value="Bring It On! 😈" />
-			</form>
+				{redirect ? <Navigate to={playLink} /> : null}
 
-			{redirect ? <Navigate to={playLink} /> : null}
+			</div>
 		</>
 	);
 };

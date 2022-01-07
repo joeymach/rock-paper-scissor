@@ -4,11 +4,12 @@ import paper from './icons/paperCircle.png';
 import { useEffect, useState } from 'react';
 import scissor from './icons/scissorCircle.png';
 import { round } from './rounds';
-
+import { Link, Navigate } from 'react-router-dom';
 
 import rockCircle from './icons/rockCircle.png';
 import paperCircle from './icons/paperCircle.png';
 import scissorCircle from './icons/scissorCircle.png';
+import Home from './home';
 
 const Computer = () => {
 	const [state, setState] = useState({
@@ -24,10 +25,8 @@ const Computer = () => {
 	});
 
 	useEffect(() => {
-		console.log(state)
+		console.log('State changed: ' + state);
 	}, [state]);
-
-
 
 	function computerTurn(playerSelected) {
 		if (state.roundsRemaining > 0) {
@@ -47,12 +46,11 @@ const Computer = () => {
 				return {
 					...prev,
 					compSelection: options[random],
-					compScr: source[random]
+					compScr: source[random],
 				};
 			});
 
 			const compSelect = options[random];
-
 
 			if (playerSelected == compSelect) {
 				setState((prev) => {
@@ -120,7 +118,7 @@ const Computer = () => {
 	}
 
 	function displayResult(e) {
-		e.preventDefault()
+		e.preventDefault();
 		const displayResultBtn = document.querySelector('#display-result-button');
 		displayResultBtn.style.display = 'none';
 
@@ -133,7 +131,7 @@ const Computer = () => {
 					resultMsg: 'The overall result: TIE 🦃',
 				};
 			});
-			console.log('tie')
+			console.log('tie');
 		} else if (Number(state.compScore) > Number(state.playerScore)) {
 			setState((prev) => {
 				return {
@@ -141,8 +139,7 @@ const Computer = () => {
 					resultMsg: 'The overall result: COMPUTER Wins 🥇',
 				};
 			});
-			console.log('computer wins')
-
+			console.log('computer wins');
 		} else {
 			setState((prev) => {
 				return {
@@ -150,7 +147,7 @@ const Computer = () => {
 					resultMsg: 'The overall result: PLAYER Wins 🥇',
 				};
 			});
-			console.log('player wins')
+			console.log('player wins');
 		}
 	}
 
@@ -161,19 +158,17 @@ const Computer = () => {
 		const scissor = document.querySelector('#scissor');
 		const playerText = document.querySelector('#player-output');
 
-		if (((rock.checked || paper.checked || scissor.checked))) {
+		if (rock.checked || paper.checked || scissor.checked) {
 			playerText.style.display = 'block';
 		}
 
 		if (state.roundsRemaining > 0) {
-
-
 			if (rock.checked) {
 				setState((prev) => {
 					return {
 						...prev,
 						playerSelection: 'Rock',
-						playerSrc: rockCircle
+						playerSrc: rockCircle,
 					};
 				});
 				computerTurn('Rock');
@@ -182,7 +177,7 @@ const Computer = () => {
 					return {
 						...prev,
 						playerSelection: 'Paper',
-						playerSrc: paperCircle
+						playerSrc: paperCircle,
 					};
 				});
 				computerTurn('Paper');
@@ -191,26 +186,34 @@ const Computer = () => {
 					return {
 						...prev,
 						playerSelection: 'Scissor',
-						playerSrc: scissorCircle
+						playerSrc: scissorCircle,
 					};
 				});
 				computerTurn('Scissor');
 			} else {
 				alert('You must pick an option! 😤');
 			}
-
 		}
-		if (state.roundsRemaining == 1 && (rock.checked || paper.checked || scissor.checked)) {
-			const playerForm = document.querySelector('#player-form')
+		if (
+			state.roundsRemaining == 1 &&
+			(rock.checked || paper.checked || scissor.checked)
+		) {
+			const playerForm = document.querySelector('#player-form');
 			playerForm.style.display = 'none';
 		}
 	}
 
 	return (
 		<>
+
+
+
+
 			<h1 id="rounds-remaining"># of Rounds Remaining:  {state.roundsRemaining} </h1>
 			<hr></hr>
-			<h3 id="winner-display">The winner of this round: <span>{state.winner}</span></h3>
+			<h3 id="winner-display">
+				The winner of this round: <span>{state.winner}</span>
+			</h3>
 			<div className="row">
 				<div className="column">
 					<h1 id="playerr">Player</h1>
@@ -219,11 +222,13 @@ const Computer = () => {
 					</h3>
 					<p id="your">Please Choose Your Option</p>
 					<p style={{ display: 'none' }} id="player-output">
-						<span class="whatyou">What You Selected: {state.playerSelection} </span>
-						<img id='circle1' src={state.playerSrc} alt='computer' />
+						<span class="whatyou">
+							What You Selected: {state.playerSelection}{' '}
+						</span>
+						<img id="circle1" src={state.playerSrc} alt="computer" />
 					</p>
 
-					<form id='player-form' onSubmit={onSubmit}>
+					<form id="player-form" onSubmit={onSubmit}>
 						<label class="radiobtn">
 							<input type="radio" id="rock" name="option" value="rock" />
 							<img class="item" src={rock} alt="rock" />
@@ -240,28 +245,36 @@ const Computer = () => {
 					</form>
 				</div>
 
-				< div class="vl"></div>
+				<div class="vl"></div>
 
 				<div className="column">
 					<h1 id="computerr">Computer</h1>
 					<h3 id="computerwins">
 						Computer's Win out of {round} rounds: {state.compScore}
 					</h3>
-					<p id="computer-screen">
-						Computer Is Waiting...
-					</p>
-					<p style={{ display: 'none' }} id="computer-bottom-output"> <span class="whatyou">
-						Computer has picked: {state.compSelection} </span>
-						<img id='circle2' src={state.compScr} alt='computer' />
+					<p id="computer-screen">Computer Is Waiting...</p>
+					<p style={{ display: 'none' }} id="computer-bottom-output">
+						{' '}
+						<span class="whatyou">
+							Computer has picked: {state.compSelection}{' '}
+						</span>
+						<img id="circle2" src={state.compScr} alt="computer" />
 					</p>
 				</div>
 			</div>
 
-			<h1 class="resultsentence" id="result">{state.resultMsg}</h1>
+			<h1 class="resultsentence" id="result">
+				{state.resultMsg}
+			</h1>
+
 
 			{state.roundsRemaining <= 0 ? <button id='display-result-button' onClick={displayResult}>WHO WON? 🤭</button> : null}
+
+			<a className="link-to-redirect" href="/">Play Again</a>
 		</>
 	);
 };
+
+
 
 export default Computer;

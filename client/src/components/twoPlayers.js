@@ -9,7 +9,6 @@ import rockCircle from './icons/rockCircle.png';
 import paperCircle from './icons/paperCircle.png';
 import scissorCircle from './icons/scissorCircle.png';
 
-
 const TwoPlayers = () => {
 	const [state, setState] = useState({
 		roundsRemaining: round,
@@ -23,7 +22,7 @@ const TwoPlayers = () => {
 		resultMsg: '',
 
 		awaitMsg1: 'Your Turn.',
-		awaitMsg2: 'Please wait for your turn.',
+		awaitMsg2: "Opponent's turn.",
 		player2Turn: 0,
 	});
 
@@ -32,10 +31,14 @@ const TwoPlayers = () => {
 	}, [state]);
 
 	useEffect(() => {
-		if (state.playerOption2 === 'Rock' || state.playerOption2 === 'Paper' || state.playerOption2 === 'Scissor') {
-			roundWinner()
+		if (
+			state.playerOption2 === 'Rock' ||
+			state.playerOption2 === 'Paper' ||
+			state.playerOption2 === 'Scissor'
+		) {
+			roundWinner();
 		} else {
-			console.log(state)
+			console.log(state);
 		}
 	}, [state.player2Turn]);
 
@@ -44,18 +47,26 @@ const TwoPlayers = () => {
 		const rock = document.querySelector('#rock');
 		const paper = document.querySelector('#paper');
 		const scissor = document.querySelector('#scissor');
-		const playerText = document.querySelector('#player-output11');
 
 		const playerForm1 = document.querySelector('#player-forms');
 		const playerForm2 = document.querySelector('#player-form2');
 
-		if (rock.checked || paper.checked || scissor.checked) {
-			playerText.style.display = 'block';
+		const playerText1 = document.querySelector('#player-output11');
+		const playerText2 = document.querySelector('#player-output2');
 
+		const icon1 = document.querySelector('#circle11');
+		const icon2 = document.querySelector('#circle21');
+
+		if (rock.checked || paper.checked || scissor.checked) {
+			playerText1.style.display = 'none';
+			playerText2.style.display = 'none';
+
+      icon1.style.display = 'none';
+			icon2.style.display = 'none';
 			setState((prev) => {
 				return {
 					...prev,
-					awaitMsg1: 'Please wait for your turn.',
+					awaitMsg1: "Opponent's turn",
 					awaitMsg2: 'It is now your turn.',
 				};
 			});
@@ -69,7 +80,7 @@ const TwoPlayers = () => {
 					return {
 						...prev,
 						playerOption1: 'Rock',
-						player1Src: rockCircle
+						player1Src: rockCircle,
 					};
 				});
 			} else if (paper.checked) {
@@ -77,7 +88,7 @@ const TwoPlayers = () => {
 					return {
 						...prev,
 						playerOption1: 'Paper',
-						player1Src: paperCircle
+						player1Src: paperCircle,
 					};
 				});
 			} else if (scissor.checked) {
@@ -85,7 +96,7 @@ const TwoPlayers = () => {
 					return {
 						...prev,
 						playerOption1: 'Scissor',
-						player1Src: scissorCircle
+						player1Src: scissorCircle,
 					};
 				});
 			} else {
@@ -100,23 +111,30 @@ const TwoPlayers = () => {
 		const rock = document.querySelector('#rock2');
 		const paper = document.querySelector('#paper2');
 		const scissor = document.querySelector('#scissor2');
-		const playerText = document.querySelector('#player-output2');
 
 		const playerForm1 = document.querySelector('#player-forms');
 		const playerForm2 = document.querySelector('#player-form2');
 
+		const playerText1 = document.querySelector('#player-output11');
+		const playerText2 = document.querySelector('#player-output2');
+
+		const icon1 = document.querySelector('#circle11');
+		const icon2 = document.querySelector('#circle21');
+
 		if (rock.checked || scissor.checked || paper.checked) {
-			playerText.style.display = 'block';
+			playerText1.style.display = 'block';
+			playerText2.style.display = 'block';
+
+      icon1.style.display = 'block';
+			icon2.style.display = 'block';
 			if (Number(state.roundsRemaining) === 1) {
 				playerForm1.style.display = 'none';
 				playerForm2.style.display = 'none';
 				setState((prev) => {
 					return {
 						...prev,
-						awaitMsg1:
-							'Game Over.',
-						awaitMsg2:
-							'Game Over.',
+						awaitMsg1: 'Game Over.',
+						awaitMsg2: 'Game Over.',
 					};
 				});
 			} else {
@@ -126,7 +144,7 @@ const TwoPlayers = () => {
 					return {
 						...prev,
 						awaitMsg1: 'It is now your turn.',
-						awaitMsg2: 'Please wait for you turn.',
+						awaitMsg2: "Opponent's turn.",
 					};
 				});
 			}
@@ -136,7 +154,7 @@ const TwoPlayers = () => {
 					return {
 						...prev,
 						playerOption2: 'Rock',
-						player2Src: rockCircle
+						player2Src: rockCircle,
 					};
 				});
 			} else if (paper.checked) {
@@ -144,7 +162,7 @@ const TwoPlayers = () => {
 					return {
 						...prev,
 						playerOption2: 'Paper',
-						player2Src: paperCircle
+						player2Src: paperCircle,
 					};
 				});
 			} else if (scissor.checked) {
@@ -152,7 +170,7 @@ const TwoPlayers = () => {
 					return {
 						...prev,
 						playerOption2: 'Scissor',
-						player2Src: scissorCircle
+						player2Src: scissorCircle,
 					};
 				});
 			}
@@ -162,14 +180,12 @@ const TwoPlayers = () => {
 					player2Turn: prev.player2Turn + 1,
 				};
 			});
-
 		} else {
-			alert('You must pick an option! 😤')
+			alert('You must pick an option! 😤');
 		}
 	};
 
 	const roundWinner = () => {
-
 		const player1Selected = state.playerOption1;
 		const player2Selected = state.playerOption2;
 
@@ -277,7 +293,8 @@ const TwoPlayers = () => {
 	}
 	return (
 		<>
-			<h1 id="rounds-left">Rounds Remaining: {state.roundsRemaining}</h1> <hr id="hr2"></hr>
+			<h1 id="rounds-left">Rounds Remaining: {state.roundsRemaining}</h1>{' '}
+			<hr id="hr2"></hr>
 			<h3 id="winner-display2">The winner of this round: {state.winner}</h3>
 			<div className="row">
 				<div className="column">
@@ -288,26 +305,32 @@ const TwoPlayers = () => {
 					<p id="await-msg1">{state.awaitMsg1}</p>
 					<p style={{ display: 'none' }} id="player-output11">
 						What You Selected: {state.playerOption1}
-						<img class='circle' id="circle11" src={state.player1Src} alt='player1' />
+						<img
+							class="circle"
+							id="circle11"
+							src={state.player1Src}
+							style={{ display: 'none' }}
+							alt="player1"
+						/>
 					</p>
 					<form id="player-forms" onSubmit={player1}>
 						<label>
 							<input type="radio" id="rock" name="option" value="rock" />
-							<img src={rock} alt="rock" />
+							<img class="item-2" src={rock} alt="rock" />
 						</label>
 						<label>
 							<input type="radio" id="paper" name="option" value="paper" />
-							<img src={paper} alt="paper" />
+							<img class="item-2" src={paper} alt="paper" />
 						</label>
 						<label>
 							<input type="radio" id="scissor" name="option" value="scissor" />
-							<img src={scissor} alt="scissor" />
+							<img class="item-2" src={scissor} alt="scissor" />
 						</label>
 						<input id="ghy" type="submit" value="GO!" />
 					</form>
 				</div>
 
-				< div class="vl2"></div>
+				<div class="vl2"></div>
 
 				<div className="column">
 					<h1 id="player23">Player 2</h1>
@@ -317,38 +340,46 @@ const TwoPlayers = () => {
 					<p id="await-msg2">{state.awaitMsg2}</p>
 					<p style={{ display: 'none' }} id="player-output2">
 						What You Selected: {state.playerOption2}
-						<img class='circle' id="circle21" src={state.player2Src} alt='player2' />
+						<img
+							class="circle"
+							id="circle21"
+							src={state.player2Src}
+							style={{ display: 'none' }}
+							alt="player2"
+						/>
 					</p>
 					<form
-
 						id="player-form2"
 						style={{ display: 'none' }}
 						onSubmit={player2}
 					>
 						<label>
 							<input type="radio" id="rock2" name="option" value="rock" />
-							<img src={rock} alt="rock" />
+							<img class="item-2" src={rock} alt="rock" />
 						</label>
 						<label>
 							<input type="radio" id="paper2" name="option" value="paper" />
-							<img src={paper} alt="paper" />
+							<img class="item-2" src={paper} alt="paper" />
 						</label>
 						<label>
 							<input type="radio" id="scissor2" name="option" value="scissor" />
-							<img src={scissor} alt="scissor" />
+							<img class="item-2" src={scissor} alt="scissor" />
 						</label>
 						<input id="blah" type="submit" value="GO!" />
 					</form>
 				</div>
 			</div>
-
-			<h1 class="resultstatement" id="result">{state.resultMsg}</h1>
-
+			<h1 class="resultstatement" id="result">
+				{state.resultMsg}
+			</h1>
 			{state.roundsRemaining <= 0 ? (
 				<button id="display-result-button" onClick={displayResult}>
 					WHO WON? 🤔
 				</button>
 			) : null}
+			<a className="link-to-redirect" href="/">
+				Play Again
+			</a>
 		</>
 	);
 };

@@ -3,6 +3,9 @@ const request = require('request');
 
 var router = express.Router();
 
+/*  api url is localhost:9000/weather/
+    returns current temperature in celsius in Toronto 
+*/
 router.get('/', function (req, res, next) {
 	var request = require('request');
 	request(
@@ -16,7 +19,9 @@ router.get('/', function (req, res, next) {
 	);
 });
 
-
+/*  api url is localhost:9000/weather/feels
+    returns what temperature in celsius feels like in Toronto 
+*/
 router.get('/feels', function (req, res, next) {
 	var request = require('request');
 	request(
@@ -30,6 +35,9 @@ router.get('/feels', function (req, res, next) {
 	);
 });
 
+/*  api url is localhost:9000/weather/feels
+    returns the description of the weather in Toronto (ex: overcast clouds)
+*/
 router.get('/desc', function (req, res, next) {
 	var request = require('request');
 	request(

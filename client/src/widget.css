@@ -1,10 +1,8 @@
 /* FOR WEATHER WIDGET */
 
 div.widget {
-	position: relative;
 	width: 355px;
 	height: 200px;
-	margin: 100px;
 	border-radius: 9px;
 	padding: 25px;
 	padding-right: 30px;
@@ -53,19 +51,39 @@ div.right-panel {
 .widget-img2 {
 	width: 100px;
 	height: 70px;
-  margin-top: 50px;
+	margin-top: 50px;
 }
-
 
 div.cases {
 	font-size: 25px;
 	color: rgba(0, 0, 0, 0.9);
 	font-weight: 100;
-  line-height: 135%;
-
+	line-height: 135%;
 }
 
 .span-cases {
   font-size: 15px;
   line-height: 120%;
 }
+
+.widget-right {
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	float: right;
+}
+
+.widget-left {
+	position: fixed;
+	left: 30px;
+	top: 20px;
+
+	float: left;
+}
+
+.div-homepage-entire {
+	margin-top: -100px;
+
+	
+}
+
